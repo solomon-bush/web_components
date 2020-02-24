@@ -1,0 +1,244 @@
+/*  0.      BASE            */
+:root{
+    /* Colors */
+    --blue: #3eb0ef;
+    --green: #a4d037;
+    --purple: #ad26b4;
+    --yellow: #fecd35;
+    --red: #f05230;
+    --darkgrey: #15171A;
+    --midgrey: #738a94;
+    --lightgrey: #c5d2d9;
+    --whitegrey: #e5eff5;
+    --pink: #fa3a57;
+    --brown: #a3821a; 
+    --darkmode: color(var(--darkgrey) l(+2%));
+
+    
+    /* Defaults */
+    
+    background: var(--darkgrey);
+    color: whitesmoke;
+}
+main{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 1.6rem;
+    margin: auto;
+    max-width: 60%;
+
+}
+
+
+/*  1.      ABOUT Section      */
+
+/*--------- Desktop --------*/
+.content-img-container header{
+    font-size: xx-large;
+}
+
+.content-container{
+    display: grid ;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 1em;
+}
+
+.content{
+    text-align: justify;
+    grid-column: 1/2;
+}
+.image{
+    grid-column: 2/3;
+    background-image: url(images/art/tarsus_atlanta_skyline.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position:center center;
+    border: 2px solid var(--whitegrey);
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+}
+.divider{  
+  border-top: 8px solid #bbb;
+  border-radius: 5px;
+  
+}
+.sub-divider {
+    width: 50%;
+    border-top: 2px solid #bbb;
+    border-radius: 5px;
+    
+}
+
+
+
+/*  2.      Action Bar      */
+.action-bar{
+    padding-top: 1em;
+    gap: 1em;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+}
+.button {
+    display: inline-block;
+    vertical-align:middle;
+    border-radius: 4px;
+    background-color: var(--blue);
+    border: none;
+    color: var(--whitegrey);
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  .action-bar-divider{
+      align-self: center;
+  }
+
+  
+/*  3.      Team      */
+.team-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 400px;
+
+}
+.team-containers * {
+    border: 1px solid white;
+}
+.team-member{
+    display: grid;
+    grid-template-rows: auto 1fr auto 2fr;
+    justify-items: center;
+    
+    grid-template-areas: 'name''title''image';
+}
+.team-member-image{
+    grid-area: image;
+    box-shadow: 0 0 0 6px hsla(0,0%,100%,.04);
+    width: 250px;
+    height: 250px;
+    display: block;
+    background: #e3e9ed;
+    border-radius: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+.team-member-name{
+    
+    grid-area: name;
+    font-size: larger;
+
+}
+.team-member-title{
+    
+    grid-area: title;
+    font-size: small;
+}
+
+/*  4.      Mission         */
+
+.mission-container{
+    padding: 10px;
+    margin: 1em;
+    
+}
+/*  4.      Core Values         */
+
+.info-container-tri-fold{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 1em;
+    justify-items: center;
+    padding: 10px;
+    margin: 1em;
+    
+}
+.tri-fold-item{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    gap: 1em;
+    grid-template-columns: 2fr 2fr 2fr;
+    grid-template-rows: 1fr 2fr 2fr;
+    grid-template-areas: 'title title title''image description description' 'image description description';
+}
+
+.tri-fold-item img{
+    grid-area: image;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    overflow: hidden;
+}
+
+.tri-fold-item .item-title{
+    grid-area: title;
+    font-weight: 700;
+    border-bottom: 1px solid white;
+}
+.tri-fold-item .item-description{
+    grid-area: description;
+    font-weight: 500;
+}
+
+/*--------- Mobile ---------*/
+
+@media only screen and (max-width: 1400px)
+{
+    .content-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .image{
+        height: 400px;
+    }
+    .team-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .team-member{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto ;
+        grid-template-areas: 'image name' 'image title' ;
+    }
+    .info-container-tri-fold{
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 1em;
+        justify-items: center;
+        padding: 10px;
+        margin: 1em;
+        
+    }
+}
